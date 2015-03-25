@@ -18,4 +18,4 @@ Note:
 Don't worry about handling ties, it is guaranteed that each word's frequency count is unique.
 
 solution:
-cat words.txt | tr '\n' ' ' | sed "s/  */ /g"| awk -v RS=' ' '{print $0}' | sort | uniq -c | sort -rn | awk '{print $2" "$1}'
+cat words.txt | tr '\n' ' ' | sed -r "s/ +/ /g"| awk -v RS=' ' '{print $0}' | sort | uniq -c | sort -rn | awk '{print $2" "$1}'
